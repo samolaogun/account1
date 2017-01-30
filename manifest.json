@@ -1,0 +1,7 @@
+{
+	"name": "Account",
+	"git": "https://raw.githubusercontent.com/samolaogun/account1/master/Account.java",
+	"type": "Code Review",
+	"author": "Sam Olaogun",
+	"desc": "The purpose of this code review was to create an account class with basic methods (Withdraw, Deposit and Interest Rate)"
+}

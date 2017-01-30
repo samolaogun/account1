@@ -1,5 +1,3 @@
-
-
 package chapter_labs.chapter_nine;
 
 import java.awt.GridLayout;
@@ -34,7 +32,7 @@ public class Account extends JFrame {
 	}
 --
 Specifies data fields
-
+---
 	Account() {
 		this(1122, 20000);
 	}
@@ -54,149 +52,159 @@ Specifies data fields
 
 		this.setVisible(true);
 	}
+--
+Constructors
+---
+public Date getDateCreated() {
+	return this.dateCreated;
+}
 
-	public Date getDateCreated() {
-		return this.dateCreated;
-	}
+/*
+ * public int getId() { return id; }
+ * 
+ * public void setId(int id) { this.id = id; }
+ */
 
-	/*
-	 * public int getId() { return id; }
-	 * 
-	 * public void setId(int id) { this.id = id; }
-	 */
+public double getAnnualInterestRate() {
+	return this.annualInterestRate;
+}
 
-	public double getAnnualInterestRate() {
-		return this.annualInterestRate;
-	}
+public void setAnnualInterestRate(double annualInterestRate) {
+	this.annualInterestRate = annualInterestRate;
+}
 
-	public void setAnnualInterestRate(double annualInterestRate) {
-		this.annualInterestRate = annualInterestRate;
-	}
+public double getBalance() {
+	return this.balance;
+}
 
-	public double getBalance() {
-		return this.balance;
-	}
+public double getMonthlyInterest() {
+	return this.balance * this.getMonthlyInterestRate();
+}
 
-	public double getMonthlyInterest() {
-		return this.balance * this.getMonthlyInterestRate();
-	}
+public double getMonthlyInterestRate() {
+	return this.annualInterestRate / 12;
+}
 
-	public double getMonthlyInterestRate() {
-		return this.annualInterestRate / 12;
-	}
+public void setBalance(double balance) {
+	this.balance = balance;
+}
+--
+Methods
+---
+private interface Button {
+	public void update();
+}
+-- 
+GUI Button interface
+---
 
-	public void setBalance(double balance) {
-		this.balance = balance;
-	}
+private class Invoice extends JFrame {
+	private static final long serialVersionUID = 1L;
 
-	private interface Button {
+	Invoice() {
+		super("Invoice");
 
-		public void update();
-	}
+		this.setSize(240, 102);
+		this.setResizable(false);
 
-	private class Invoice extends JFrame {
-		private static final long serialVersionUID = 1L;
+		try {
+			JPanel p = new JPanel(new GridLayout(3, 1));
+			this.setContentPane(p);
 
-		Invoice() {
-			super("Invoice");
+			JLabel b = new JLabel("Balance: " + Double.toString(getBalance()));
+			p.add(b);
 
-			this.setSize(240, 102);
-			this.setResizable(false);
+			JLabel m = new JLabel("Monthly Interest: " + Double.toString(getMonthlyInterest()));
+			p.add(m);
 
-			try {
-				JPanel p = new JPanel(new GridLayout(3, 1));
-				this.setContentPane(p);
-
-				JLabel b = new JLabel("Balance: " + Double.toString(getBalance()));
-				p.add(b);
-
-				JLabel m = new JLabel("Monthly Interest: " + Double.toString(getMonthlyInterest()));
-				p.add(m);
-
-				JLabel d = new JLabel("Account Created On " + dateCreated.toString());
-				p.add(d);
-			} catch (NumberFormatException e) {
-			}
-
-			this.setVisible(true);
-		}
-	}
-
-	private class Withdraw extends JButton implements Button {
-		private static final long serialVersionUID = 1L;
-
-		Withdraw() {
-			super("Withdraw");
+			JLabel d = new JLabel("Account Created On " + dateCreated.toString());
+			p.add(d);
+		} catch (NumberFormatException e) {
 		}
 
-		public void update() {
-			try {
-				String resp = JOptionPane.showInputDialog("Withdraw Amount");
-				double amnt = Double.parseDouble(resp);
-				setBalance(getBalance() - amnt);
-				new Invoice();
-			} catch (NumberFormatException e) {
+		this.setVisible(true);
+	}
+}
 
-			}
+private class Withdraw extends JButton implements Button {
+	private static final long serialVersionUID = 1L;
 
-		}
+	Withdraw() {
+		super("Withdraw");
 	}
 
-	private class Deposit extends JButton implements Button {
-		private static final long serialVersionUID = 1L;
-
-		Deposit() {
-			super("Deposit");
-		}
-
-		public void update() {
-			try {
-				String resp = JOptionPane.showInputDialog("Deposit Amount");
-				double amnt = Double.parseDouble(resp);
-				setBalance(getBalance() + amnt);
-				new Invoice();
-			} catch (NumberFormatException e) {
-
-			}
+	public void update() {
+		try {
+			String resp = JOptionPane.showInputDialog("Withdraw Amount");
+			double amnt = Double.parseDouble(resp);
+			setBalance(getBalance() - amnt);
+			new Invoice();
+		} catch (NumberFormatException e) {
 
 		}
+
+	}
+}
+
+private class Deposit extends JButton implements Button {
+	private static final long serialVersionUID = 1L;
+
+	Deposit() {
+		super("Deposit");
 	}
 
-	private class InterestRate extends JButton implements Button {
-		private static final long serialVersionUID = 1L;
-		private String resp;
-		private double amnt;
-
-		InterestRate() {
-			super("Interest Rate");
-		}
-
-		public void update() {
-			try {
-				resp = JOptionPane.showInputDialog("Add an Interest Rate");
-				amnt = Double.parseDouble(resp);
-				setAnnualInterestRate(amnt);
-				new Invoice();
-			} catch (NumberFormatException e) {
-
-			}
+	public void update() {
+		try {
+			String resp = JOptionPane.showInputDialog("Deposit Amount");
+			double amnt = Double.parseDouble(resp);
+			setBalance(getBalance() + amnt);
+			new Invoice();
+		} catch (NumberFormatException e) {
 
 		}
+
+	}
+}
+
+private class InterestRate extends JButton implements Button {
+	private static final long serialVersionUID = 1L;
+	private String resp;
+	private double amnt;
+
+	InterestRate() {
+		super("Interest Rate");
 	}
 
-	private class Handler implements ActionListener {
+	public void update() {
+		try {
+			resp = JOptionPane.showInputDialog("Add an Interest Rate");
+			amnt = Double.parseDouble(resp);
+			setAnnualInterestRate(amnt);
+			new Invoice();
+		} catch (NumberFormatException e) {
 
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			if (e.getSource() == w)
-				w.update();
-			else if (e.getSource() == d)
-				d.update();
-			else if (e.getSource() == i)
-				i.update();
 		}
-	}
 
+	}
+}
+--
+Buttons
+---
+private class Handler implements ActionListener {
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == w)
+			w.update();
+		else if (e.getSource() == d)
+			d.update();
+		else if (e.getSource() == i)
+			i.update();
+	}
+}
+--
+Event Handler
+---
 	private class Dashboard extends JPanel {
 		private static final long serialVersionUID = 1L;
 
@@ -221,3 +229,5 @@ Specifies data fields
 		}
 	}
 }
+--
+Grid Layout
