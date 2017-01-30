@@ -1,0 +1,222 @@
+// Color vars ----------------
+$color-gray: #F4F4F6;
+$color-dark-gray: #282E32;
+$color-blue: #2095FF;
+
+// Mixins ----------------
+@mixin transition($selector, $easing, $timing) {
+	-webkit-transition: $selector $easing $timing;
+	-moz-transition: $selector $easing $timing;
+	-o-transition: $selector $easing $timing;
+}
+
+// Reset ----------------
+* {
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	font-family: 'Karla', -apple-system-font, BlinkMacSystemFont, sans-serif;
+}
+
+html {
+	font-size: 90%;
+	background-color: $color-gray;
+}
+
+body {
+	margin: 0;
+	width: 100vw;
+	height: auto;
+	letter-spacing: -0.036rem;
+	overflow-x: hidden;
+}
+
+::selection {
+	background-color: $color-blue;
+}
+
+// Keyframes ----------------
+@keyframes fade {
+	0% {
+		opacity: 0;
+		transform: translateY(3rem);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0rem);
+	}
+}
+
+// Backgrounds ----------------
+.bg-white {
+	background-color: #FFFFFF;
+}
+
+.bg-gray {
+	background-color: $color-gray;
+}
+
+.bg-dark-gray {
+	background-color: $color-dark-gray;
+}
+
+// Property classes ----------------
+.p-no-border {
+	border: none;
+	padding: none;
+}
+.p-text-reg {
+	color: black;
+	border: none;
+	padding: 0;
+	margin: 0;
+}
+.p-highlight {
+	color: $color-blue;
+}
+.p-center {
+	text-align: center;
+	margin: 0;
+	padding: 0;
+}
+
+// Notification ----------------
+.notification {
+	will-change: transform;
+	bottom: 32px;
+	right: 32px;
+	background-color: #FFFFFF;
+	position: fixed;
+	padding: 16px;
+	border-radius: 4px;
+	text-align: center;
+	min-width: 100px;
+}
+
+// Code formatting ----------------
+code {
+	border-radius: 2px;
+	overflow-x: scroll;
+	font-size: 1.36rem;
+}
+
+.code-wrapper {
+	opacity: 0;
+	animation-fill-mode: forwards;
+	background-color: white;
+	margin-bottom: 64px;
+	border: 2px solid rgba(0, 0, 0, 0.08);
+	border-radius: 4px;
+	font-size: 1.4rem;
+	padding: 32px;
+	box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.024);
+	@include transition(all, ease, 0.3s);
+	&:hover {
+		border-color: #2095FF;
+	}
+}
+
+.code-wrapper-light {
+	@extend .code-wrapper;
+	line-height: 0.6;
+	background-color: rgba(255, 255, 255, 0.1);
+	border: 2px solid rgba(255, 255, 255, .08);
+}
+
+p {
+	color: #51575A;
+	border-left: 2px solid rgba(0, 0, 0, 0.1);
+	padding-left: 16px;
+	margin: 0px;
+	overflow: hidden;
+	font-weight: 200;
+	line-height: 1.3;
+}
+
+// Flex properties ----------------
+.flex-container {
+	display: flex;
+	overflow-y: hidden;
+	direction: column;
+	margin: 0;
+	flex-wrap: wrap;
+}
+.flex-left {
+	flex: 1;
+	height: 100vh;
+	padding: 64px;
+	overflow-y: scroll;
+	margin: 0;
+	@include transition(all, ease, 0.6s);
+}
+.flex-right {
+	@extend .flex-left;
+}
+
+// Button ----------------
+button {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #2095FF;
+	margin-bottom: 0;
+	font-size: 1rem;
+	border: none;
+	font-weight: 400;
+	color: white;
+	border-radius: 4px;
+	padding: 12px;
+	@include transition(all, ease, 0.3s);
+	opacity: 1;
+	&:hover {
+		transform: scale(1.01);
+		opacity: 0.6;
+	}
+	&:focus {
+		outline: 0;
+	}
+}
+
+// Preloader ----------------
+.preloader {
+	background-color: black;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100vw;
+	height: 100vh;
+	z-index: 2;
+}
+
+// Responsive ----------------
+@media(max-width: 1200px) {
+	html {
+		font-size: 70%;
+	}
+	.notification {
+		right: 0px;
+	}
+}
+
+@media (max-width: 800px) {
+	.code-wrapper {
+		margin-bottom: 32px;
+	}
+	.flex-left {
+		padding: 32px;
+	}
+	.flex-right {
+		display: none;
+	}
+	.notification {
+		font-size: 130%;
+		width: 100vw;
+		padding-top: 24px;
+		padding-bottom: 24px;
+		bottom: 0px;
+		right: 0px;
+		border-top: 1px solid rgba(0, 0, 0, 0.1);
+		line-height: normal;
+	}
+}
