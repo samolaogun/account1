@@ -1,8 +1,8 @@
 # Bubble
-Bubble is a code review boilerplate maintained and used by [Sam Olaogun]{http://twitter.com/samolaogun}.
+Bubble is a code review boilerplate maintained and used by [Sam Olaogun](http://twitter.com/samolaogun).
 
 ## Setup
-Setup your project. Make sure that you have [SASS]{http://sass-lang.org} installed.
+Setup your project. Make sure that you have [SASS](http://sass-lang.org) installed.
 ```
 cd path/to/folder
 sh setup.sh
