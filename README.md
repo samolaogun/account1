@@ -2,12 +2,16 @@
 Bubble is a code review boilerplate maintained and used by [Sam Olaogun](http://twitter.com/samolaogun).
 
 ## Setup
-Setup your project. Make sure that you have [SASS](http://sass-lang.org) installed.
+Setup your project. Make sure that you have [SASS](http://sass-lang.org) installed. Next, change directory to your working directory and clone the repository.
+
 ```
 cd path/to/folder
-sh setup.sh
+git clone https://github.com/samolaogun/bubble.git
 ```
-Once you run the shell file, it will prompt you to fill out the manifest file. Do this, and you're ready to go.
+Setup your project by entering the following command. It will prompt you to fill out the manifest file. Do this, and you're ready to go.
+```
+git start
+```
 
 ## Annotations
 You can edit your annotations in the the **annotations.txt** file. Annotations should follow this pattern. It is sensitive to carriage returns, so do not include inessential spaces.
