@@ -1,5 +1,5 @@
-# Bubble
-Bubble is a code review boilerplate maintained and used by [Sam Olaogun](http://twitter.com/samolaogun).
+# Bubblegum
+Bubblegum is a code review boilerplate maintained and used by [Sam Olaogun](http://twitter.com/samolaogun).
 
 ## Setup
 Setup your project. Make sure that you have [SASS](http://sass-lang.org) and [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed. Next, change directory to your working directory and clone the repository.
@@ -29,4 +29,4 @@ Description
 Enjoy in moderation.
 
 ##License
-Checkout the license (here)[https://github.com/samolaogun/bubble/blob/master/LICENSE.md].
+Checkout the license [here](https://github.com/samolaogun/bubble/blob/master/LICENSE.md).
