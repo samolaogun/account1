@@ -67,11 +67,11 @@ function check($str) {
 <head>
 	<title><?php if ($has_name && $has__type) echo $name ?></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta http-euiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="author" content="<?php echo $author ?>">
-	<meta name="og:author" content="<?php echo $author ?>">
 	<meta name="description" content="<?php echo $desc ?>">
 	<meta property="og:description" content="<?php echo $desc ?>">
+	<meta name="og:author" content="<?php echo $author ?>">
 	<meta rel="manifest" href="manifest.json">
 	<link href="css/main.css" type="text/css" rel="stylesheet">
 	<link rel="stylesheet" href="vendor/styles/atom-one-dark.css">
