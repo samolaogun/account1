@@ -30,3 +30,8 @@ Enjoy in moderation.
 
 ##License
 Checkout the license [here](https://github.com/samolaogun/bubble/blob/master/LICENSE.md).
+
+##Next
+- Line matching
+- Themes
+- Launch page
