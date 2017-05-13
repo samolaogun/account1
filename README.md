@@ -28,10 +28,10 @@ Description
 
 Enjoy in moderation.
 
-##License
+## License
 Checkout the license [here](https://github.com/samolaogun/bubble/blob/master/LICENSE.md).
 
-##Next
+## Next
 - Line matching
 - Themes
 - Launch page
